@@ -10,7 +10,3 @@ def hello_world():
 # Create a WSGI callable object that wraps the app instance
 def run_app():
     return app
-
-# Alternatively, you can use the `make_wsgi_app` function from Flask
-from flask import make_wsgi_app
-wsgi_app = make_wsgi_app(app)
