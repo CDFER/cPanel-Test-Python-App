@@ -1,15 +1,16 @@
 from flask import Flask
 
-# Create an instance of the Flask class
 app = Flask(__name__)
 
-# Define a route for the root URL
+# Define routes and views for the application
 @app.route('/')
 def hello_world():
-    # Return the string 'Hello, World!' to the client
-    return 'Hello, World'
+    return 'Hello, World!'
 
-# Check if the script is being run directly (not imported)
-if __name__ == '__main__':
-    # Run the Flask application
-    app.run()
+# Create a WSGI callable object that wraps the app instance
+def run_app():
+    return app
+
+# Alternatively, you can use the `make_wsgi_app` function from Flask
+from flask import make_wsgi_app
+wsgi_app = make_wsgi_app(app)
